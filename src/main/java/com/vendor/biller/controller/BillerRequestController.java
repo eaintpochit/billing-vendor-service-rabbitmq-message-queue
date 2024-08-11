@@ -1,8 +1,9 @@
 package com.vendor.biller.controller;
 
 import com.vendor.biller.dto.BillerRequestDto;
-import com.vendor.biller.service.BillerRequestService;
+import com.vendor.biller.service.IBillerRequestService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -10,10 +11,10 @@ import org.springframework.web.bind.annotation.*;
 public class BillerRequestController {
 
     @Autowired
-    private BillerRequestService billerRequestService;
+    private IBillerRequestService billedRequestService;
 
     @PostMapping("/request")
-    public String sendBillerRequest(@RequestBody BillerRequestDto billerRequest) {
-        return billerRequestService.send(billerRequest);
+    public ResponseEntity<?> sendBillerRequest(@RequestBody BillerRequestDto billerRequest) {
+        return billedRequestService.sendBillRequest(billerRequest);
     }
 }

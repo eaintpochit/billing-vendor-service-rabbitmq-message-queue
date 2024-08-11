@@ -7,10 +7,10 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class BillerRequestDto implements Serializable {
-    private String mobileNumber;
-    private Double amount;
+@AllArgsConstructor
+public class PromotionMessageDto implements Serializable{
+    String topic;
+    String context;
 
 }
